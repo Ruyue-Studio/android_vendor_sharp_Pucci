@@ -1,0 +1,3 @@
+on post-fs-data
+    chmod 0660 /dev/shtpsif
+    chown root system /dev/shtpsif

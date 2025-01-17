@@ -1,0 +1,5 @@
+on property:sdem.pq.cur_mode=*
+    setprop sf.pq.cur_mode ${sdem.pq.cur_mode}
+
+on property:sdem.pq.hdr_setting=*
+    setprop sf.pq.hdr_setting ${sdem.pq.hdr_setting}

@@ -1,0 +1,7 @@
+service shlight-hal-1-1 /vendor/bin/hw/vendor.sharp.hardware.shlight@1.1-service
+    interface vendor.sharp.hardware.shlight@1.1::IShLight default
+    class hal
+    user system
+    group system
+    # shutting off lights while powering-off
+    shutdown critical

@@ -1,0 +1,5 @@
+# SHARP_EXTEND PowerSave ADD-START
+on boot
+    chown system system /sys/power/panel_state
+    chmod 0660 /sys/power/panel_state
+# SHARP_EXTEND PowerSave ADD-END

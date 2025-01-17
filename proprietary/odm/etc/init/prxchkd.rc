@@ -1,0 +1,10 @@
+service prxchkd /odm/bin/prxchkd
+    class main
+    user root
+    group system wakelock
+
+on post-fs-data
+    chmod 0660 /sys/bus/platform/devices/prxchk/request
+    chown root system /sys/bus/platform/devices/prxchk/request
+    chmod 0660 /sys/bus/platform/devices/prxchk/proximity_value
+    chown root system /sys/bus/platform/devices/prxchk/proximity_value

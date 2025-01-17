@@ -1,0 +1,9 @@
+
+on post-fs-data
+    mkdir /data/vendor/sh_ssr 0700 root root
+
+service shjavalogd_vendor /odm/bin/shjavalogd_vendor
+    class main
+    user root
+    group root
+

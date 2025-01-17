@@ -1,0 +1,4 @@
+service ssrdump /vendor/bin/subsystem_ramdump 1 0 0
+    class main
+    user root
+    group root system

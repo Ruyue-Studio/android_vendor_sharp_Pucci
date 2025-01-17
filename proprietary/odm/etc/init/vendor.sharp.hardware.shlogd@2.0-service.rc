@@ -1,0 +1,5 @@
+service shlogd-2-0 /odm/bin/hw/vendor.sharp.hardware.shlogd@2.0-service
+    class hal
+    user system
+    group system
+    shutdown critical

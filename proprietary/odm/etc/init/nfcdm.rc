@@ -1,0 +1,7 @@
+service nfcdm-daemon /odm/bin/nfcdm
+    class nfc
+    user  nfc
+    group nfc
+
+on property:sys.shutdown.requested=*
+    start nfcdm-daemon

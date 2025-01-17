@@ -1,0 +1,5 @@
+service vendor.dumpstate-pucci-1-0 /vendor/bin/hw/android.hardware.dumpstate@1.0-service.pucci
+    class hal
+    user root
+    group system
+    interface android.hardware.dumpstate@1.0::IDumpstateDevice default

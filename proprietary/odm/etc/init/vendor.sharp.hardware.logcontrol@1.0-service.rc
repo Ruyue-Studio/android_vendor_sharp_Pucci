@@ -1,0 +1,17 @@
+service logcontrol-hal-1-0 /odm/bin/hw/vendor.sharp.hardware.logcontrol@1.0-service
+    class hal
+    user root
+    group system
+
+service shramdump_set /odm/bin/shramdump_set ${vendor.sharp.logcontrol.ramdump}
+    class main
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:vendor.sharp.logcontrol.ramdump=*
+    start shramdump_set
+
+on post-fs-data
+    mkdir /data/vendor/logcontrol 0740 root system

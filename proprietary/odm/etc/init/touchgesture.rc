@@ -1,0 +1,3 @@
+on post-fs-data
+    chmod 0660 /sys/kernel/shtps/shtpsif/wake_event
+    chown root system /sys/kernel/shtps/shtpsif/wake_event

@@ -1,0 +1,18 @@
+service shsoftupdate /odm/bin/shsoftupdate
+    class core
+    oneshot
+    disabled
+    user root
+    group root shell system nfc
+    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW NET_BIND_SERVICE SYS_MODULE SYS_BOOT FSETID CHOWN SYS_ADMIN FOWNER IPC_LOCK IPC_OWNER SYS_RESOURCE SETFCAP SETPCAP SETGID SETUID SYS_CHROOT SYS_NICE SYS_PACCT SYS_PTRACE SYS_RAWIO SYS_TIME SYS_TTY_CONFIG
+    seclabel u:r:sh_diag:s0
+
+on property:ro.boot.wakeinfo=65535 && property:sys.usb.config=obex
+    start shsoftupdate
+
+on property:ro.boot.wakeinfo=65535 && property:sys.usb.config=obex,adb
+    start shsoftupdate
+
+on property:ro.boot.wakeinfo=65535 && property:sys.usb.config=obex,adb,diag
+    start shsoftupdate
+

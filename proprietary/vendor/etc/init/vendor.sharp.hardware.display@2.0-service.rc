@@ -1,0 +1,4 @@
+service display-2-0 /vendor/bin/hw/vendor.sharp.hardware.display@2.0-service
+    class hal
+    user system
+    group system

@@ -1,0 +1,6 @@
+on lkm-preload-done
+    # Load loadable kernel modules
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /odm/lib/modules \
+                        cxd224x-i2c.ko snfc_en.ko sh_wlan_factory.ko ml630q790_lib.ko \
+                        fpc1020_platform_tee.ko proximity_checker.ko \
+                        shbatt_kerl.ko shpwr_log.ko shtps.ko shhall.ko \

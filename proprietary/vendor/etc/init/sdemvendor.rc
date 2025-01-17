@@ -1,0 +1,13 @@
+service sdem-vendor /vendor/bin/sdem-vendor
+    class main
+    user system
+    group system
+
+on property:init.svc.surfaceflinger=stopped
+    stop sdem-vendor
+
+on property:init.svc.surfaceflinger=running
+    start sdem-vendor
+
+on property:init.svc.surfaceflinger=restarting
+    stop sdem-vendor

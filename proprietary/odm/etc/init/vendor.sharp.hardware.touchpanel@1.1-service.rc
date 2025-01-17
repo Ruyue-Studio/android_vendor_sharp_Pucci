@@ -1,0 +1,4 @@
+service touchpanel-1-1 /odm/bin/hw/vendor.sharp.hardware.touchpanel@1.1-service
+    class hal
+    user system
+    group system

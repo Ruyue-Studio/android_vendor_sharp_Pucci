@@ -1,0 +1,9 @@
+# WLAN wlan.rc file
+#
+# Copyright (c) 2017 Sharp Corporation
+
+service sh_wlan_fac /vendor/bin/sh /odm/bin/sh_wlan_fac.sh
+    class core
+    oneshot
+    group root
+

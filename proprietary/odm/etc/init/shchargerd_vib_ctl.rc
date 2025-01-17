@@ -1,0 +1,6 @@
+on property:sys.charger.vib.status=on
+    start shchargerd_vib_ctl
+
+service shchargerd_vib_ctl /odm/bin/shchargerd_vib_ctl
+    oneshot
+    disabled

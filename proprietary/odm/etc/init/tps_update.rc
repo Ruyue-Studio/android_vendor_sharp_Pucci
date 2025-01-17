@@ -1,0 +1,6 @@
+# SHARP_EXTEND TPS Add-Start
+service odm.tps_update /odm/bin/tps_update
+    class main
+    user root
+    oneshot
+# SHARP_EXTEND TPS Add-End

@@ -1,0 +1,162 @@
+{
+  "config":{
+    "hw_platform": ["PUCCI", "QE72", "M72"],
+    "soc_id": ["291", "246", "305", "321"]
+  },
+  "yas539_0":{
+    "owner": "sns_yas539",
+    ".mag":{
+      "owner": "sns_yas539",
+      ".config":{
+        "owner": "sns_yas539",
+        "is_dri":{ "type": "int", "ver": "0",
+          "data": "0"
+        },
+        "hw_id":{ "type": "int", "ver": "0",
+          "data": "0"
+        },
+        "res_idx":{ "type": "int", "ver": "0",
+          "data": "2"
+        },
+        "sync_stream":{ "type": "int", "ver": "0",
+          "data": "1"
+        }
+      }
+    }
+  },
+  "yas539_0_platform":{
+    "owner": "sns_yas539",
+    ".config":{
+      "owner": "sns_yas539",
+      "bus_type":{ "type": "int", "ver": "0",
+        "data": "0"
+      },
+      "bus_instance":{ "type": "int", "ver": "0",
+        "data": "1"
+      },
+      "slave_config":{ "type": "int", "ver": "0",
+        "data": "46"
+      },
+      "min_bus_speed_khz":{ "type": "int", "ver": "0",
+        "data": "400"
+      },
+      "max_bus_speed_khz":{ "type": "int", "ver": "0",
+        "data": "400"
+      },
+      "reg_addr_type":{ "type": "int", "ver": "0",
+        "data": "0"
+      },
+      "num_rail":{ "type": "int", "ver": "1",
+        "data": "1"
+      },
+      "rail_on_state":{ "type": "int", "ver": "1",
+        "data": "1"
+      },
+      "vddio_rail":{ "type": "str", "ver": "1",
+        "data": "/pmic/client/dummy_vdd" 
+      },
+      "rigid_body_type":{ "type": "int", "ver": "0",
+      "data": "0"
+      }
+    },
+    ".orient":{
+      "owner": "sns_yas539",
+      "x":{ "type": "str", "ver": "2",
+        "data": "+x"
+      },
+      "y":{ "type": "str", "ver": "2",
+        "data": "+y"
+      },
+      "z":{ "type": "str", "ver": "2",
+        "data": "+z"
+      }
+    },
+    ".mag":{
+      "owner": "sns_yas539",
+      ".fac_cal":{
+        "owner": "sns_yas539",
+        ".corr_mat":{
+          "owner": "sns_yas539",
+          "0_0":{ "type": "flt", "ver": "2",
+            "data": "0.9655"
+          },
+          "0_1":{ "type": "flt", "ver": "2",
+            "data": "0.1384"
+          },
+          "0_2":{ "type": "flt", "ver": "2",
+            "data": "0.0055"
+          },
+          "1_0":{ "type": "flt", "ver": "2",
+            "data": "0.1330"
+          },
+          "1_1":{ "type": "flt", "ver": "2",
+            "data": "1.0040"
+          },
+          "1_2":{ "type": "flt", "ver": "2",
+            "data": "0.0070"
+          },
+          "2_0":{ "type": "flt", "ver": "2",
+            "data": "-0.0640"
+          },
+          "2_1":{ "type": "flt", "ver": "2",
+            "data": "0.0557"
+          },
+          "2_2":{ "type": "flt", "ver": "2",
+            "data": "1.0314"
+          }
+        },
+        ".bias":{
+          "owner": "sns_yas539",
+          "x":{ "type": "flt", "ver": "0",
+            "data": "0.0"
+          },
+          "y":{ "type": "flt", "ver": "0",
+            "data": "0.0"
+          },
+          "z":{ "type": "flt", "ver": "0",
+            "data": "0.0"
+          }
+        }
+      }
+    },
+    ".placement":{
+      "owner": "sns_yas539",
+      "0":{ "type": "flt", "ver": "0",
+        "data": "0.0"
+      },
+      "1":{ "type": "flt", "ver": "0",
+        "data": "0.0"
+      },
+      "2":{ "type": "flt", "ver": "0",
+        "data": "0.0"
+      },
+      "3":{ "type": "flt", "ver": "0",
+        "data": "0.0"
+      },
+      "4":{ "type": "flt", "ver": "0",
+        "data": "0.0"
+      },
+      "5":{ "type": "flt", "ver": "0",
+        "data": "0.0"
+      },
+      "6":{ "type": "flt", "ver": "0",
+        "data": "0.0"
+      },
+      "7":{ "type": "flt", "ver": "0",
+        "data": "0.0"
+      },
+      "8":{ "type": "flt", "ver": "0",
+        "data": "0.0"
+      },
+      "9":{ "type": "flt", "ver": "0",
+        "data": "0.0"
+      },
+      "10":{ "type": "flt", "ver": "0",
+        "data": "0.0"
+      },
+      "11":{ "type": "flt", "ver": "0",
+        "data": "0.0"
+      }
+    }
+  }
+}

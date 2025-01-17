@@ -1,0 +1,10 @@
+on boot
+	chown system system /sys/module/sh_systime/parameters/timestamp_point
+
+on property:sys.boot_completed=1 && property:ro.boot.wakeinfo=65535
+    start shsystimed
+
+service shsystimed /odm/bin/shsystimed
+    class main
+    oneshot
+    disabled

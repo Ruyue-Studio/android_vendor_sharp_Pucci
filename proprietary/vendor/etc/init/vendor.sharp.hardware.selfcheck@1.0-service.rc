@@ -1,0 +1,4 @@
+service selfcheck-1-0 /vendor/bin/hw/vendor.sharp.hardware.selfcheck@1.0-service
+    class hal
+    user root
+    group vendor_self_check

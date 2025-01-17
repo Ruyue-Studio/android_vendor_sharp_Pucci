@@ -1,0 +1,15 @@
+{
+  "config": {
+    "hw_platform": ["MTP", "Dragon", "Surf", "HDK", "IDP", "DIO", "QD91", "QE91", "SK91", "JOHNNY", "QE92", "T892", "M92", "TK92", "PUCCI", "QE72", "M72"],
+    "soc_id": ["321", "339", "355", "356", "361", "365", "366", "394", "400", "407"]
+  },
+  "sns_mag_cal_config": {
+    "owner": "sns_mag_cal",
+    "anomaly_threshold": {"type": "flt","ver": "0",
+      "data": "200.0"
+    },
+    "sample_rate": { "type": "flt", "ver": "0",
+        "data": "25.0"
+    }
+  }
+}

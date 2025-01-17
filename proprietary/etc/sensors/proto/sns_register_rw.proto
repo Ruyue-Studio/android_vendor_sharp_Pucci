@@ -1,0 +1,120 @@
+// @file sns_register_rw.proto
+//
+// Sensors Register message definitions for internal and external clients
+//
+// Copyright (c) 2018 Sharp Corporation All Rights Reserved.
+
+syntax = "proto2";
+import "nanopb.proto";
+
+// Registry Sensor message IDs:
+enum sns_register_msgid {
+  option (nanopb_enumopt).long_names = false;
+
+  SNS_REGISTER_RW_MSGID_SNS_REGISTER_READ_REQ = 601;
+  SNS_REGISTER_RW_MSGID_SNS_REGISTER_WRITE_REQ = 602;
+  SNS_REGISTER_RW_MSGID_SNS_REGISTER_READ_EVENT = 603;
+  SNS_REGISTER_RW_MSGID_SNS_REGISTER_WRITE_EVENT = 604;
+
+  SNS_REGISTER_RW_MSGID_SNS_DEBUG_REQ = 605;
+  SNS_REGISTER_RW_MSGID_SNS_DEBUG_EVENT = 606;
+}
+
+// register read/write buff size
+enum sns_register_value_size {
+  option (nanopb_enumopt).long_names = false;
+  // Priority LOWEST is used for low priority timers
+  SNS_MAX_REFREG_VALUE_INT_SIZE  = 4;
+  SNS_MAX_REFREG_VALUE_BYTE_SIZE  = 16;
+}
+// register read/write result
+enum sns_register_rw_result {
+  option (nanopb_enumopt).long_names = false;
+  //--------------------------------------------
+  SNS_RWRITE_RESULT_SUCCESS  = 0;
+  SNS_RWRITE_RESULT_FAILURE  = 9;
+  //--------------------------------------------
+}
+
+// Sensor IDs:
+enum sns_register_sensor_id {
+  option (nanopb_enumopt).long_names = false;
+
+  SNS_REGISTER_RW_SENSOR_ID_ACCEL = 0;
+  SNS_REGISTER_RW_SENSOR_ID_MAG = 1;
+  SNS_REGISTER_RW_SENSOR_ID_PRESS = 2;
+  SNS_REGISTER_RW_SENSOR_ID_PROX = 3;
+  SNS_REGISTER_RW_SENSOR_ID_LIGHT = 4;
+  SNS_REGISTER_RW_SENSOR_ID_SNSDBG = 5;
+  SNS_REGISTER_RW_SENSOR_ID_MAX = 6;
+}
+
+message sns_register_rw_data
+{
+  required uint32  rw_result = 1;
+  required fixed32 reg_addr  = 2;
+  required fixed32 num_bytes = 3;
+  repeated uint32 buff = 4 [(nanopb).max_count = 4, deprecated = true];
+  
+}
+
+message sns_register_read_req
+{
+  required sns_register_rw_data data = 1;
+}
+
+message sns_register_write_req
+{
+  required sns_register_rw_data data = 1;
+}
+
+message sns_register_read_event
+{
+  required sns_register_rw_data data = 1;
+}
+message sns_register_write_event
+{
+  required sns_register_rw_data data = 1;
+}
+
+
+message sns_register_read_req_v2
+{
+  required fixed32 sensor_id = 1;
+  required sns_register_rw_data data = 2;
+}
+
+message sns_register_write_req_v2
+{
+  required fixed32 sensor_id = 1;
+  required sns_register_rw_data data = 2;
+}
+
+message sns_register_read_event_v2
+{
+  required fixed32 sensor_id = 1;
+  required sns_register_rw_data data = 2;
+}
+message sns_register_write_event_v2
+{
+  required fixed32 sensor_id = 1;
+  required sns_register_rw_data data = 2;
+}
+
+
+message sns_register_debug_req
+{
+  required fixed32 type = 1;
+  required fixed32 sensor_id = 2;
+  required fixed32 num_bytes = 3;
+  repeated uint32 buff = 4 [(nanopb).max_count = 4, deprecated = true];
+}
+
+message sns_register_debug_event
+{
+  required fixed32 type = 1;
+  required fixed32 sensor_id = 2;
+  required fixed32 num_bytes = 3;
+  repeated uint32 buff = 4 [(nanopb).max_count = 4, deprecated = true];
+  required uint32  result = 5;
+}

@@ -1,0 +1,3 @@
+on early-init
+    # PreLoad loadable kernel modules
+    trigger lkm-preload-done

@@ -1,0 +1,22 @@
+# SHARP_EXTEND Customize SIM_Modem.
+#  SH-UIM-L0201,
+#  SH-UIM-L0003,
+#  SH-UIM-L8007
+# uim-daemon uimd.rc file
+#
+# Copyright (c) 2021 Sharp Corporation
+
+service uim-daemon-gsi /odm/bin/uimd
+    class late_start
+    user root
+    disabled
+    group radio vendor_nfc_uim
+
+on property:ro.product.brand=Android
+  start uim-daemon-gsi
+
+on property:vold.decrypt=trigger_restart_framework && property:ro.product.brand=Android
+  start uim-daemon-gsi
+
+on property:vendor.uim.init=1 && property:ro.product.brand=Android
+  restart uim-daemon-gsi

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<DolbySecurity version="1.0" xmlns:xl="http://www.w3.org/2001/XInclude">
+  <ModuleList>
+    <Module name="3d92769b8357">
+      <Property name="1cb575a6c101be2eb5c740b734b2d602" value="3d92769b8357" />
+      <Property name="1cb575a6c101be2eb5c740b829b7dd0a" value="e0269b0986" />
+      <Property name="29b99d1ea834b2c60dae75bbd200af3db7d01aaf29b3c1" value="e0269b0986" />
+      <Property name="a834f8c31cb53fa3d01af43fb3c507b93e" value="3d92769b8357" />
+    </Module>
+    <Module name="8b5ee9089e">
+      <Property name="1cb575a6c101be2eb5c740b734b2d602" value="8b5ee9089e" />
+      <Property name="1cb575a6c101be2eb5c740b829b7dd0a" value="891c" />
+      <Property name="29b99d1ea834b2c60dae75bbd200af3db7d01aaf29b3c1" value="e0269b0986" />
+      <Property name="a834f8c31cb53fa3d01af43fb3c507b93e" value="891cee835d8913" />
+    </Module>
+  </ModuleList>
+</DolbySecurity>

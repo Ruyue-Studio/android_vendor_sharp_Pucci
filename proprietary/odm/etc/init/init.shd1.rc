@@ -1,0 +1,145 @@
+service odm.shdiag /odm/bin/shdiag_QE72 1
+    class core
+    oneshot
+    disabled
+    user root
+    group root shell system nfc radio wifi misc vendor_qti_diag drmrpc graphics
+    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW NET_BIND_SERVICE SYS_MODULE SYS_BOOT FSETID CHOWN SYS_ADMIN FOWNER IPC_LOCK IPC_OWNER SYS_RESOURCE SETFCAP SETPCAP SETGID SETUID SYS_CHROOT SYS_NICE SYS_PACCT SYS_PTRACE SYS_RAWIO SYS_TIME SYS_TTY_CONFIG
+    seclabel u:r:sh_diag:s0
+
+service odm.shdiag32 /odm/bin/shdiag32
+    class core
+    oneshot
+    disabled
+    seclabel u:r:sh_diag:s0
+
+on property:init.svc.odm.shdiag=running
+    start odm.shdiag32
+
+on property:init.svc.odm.shdiag=stopped
+    stop odm.shdiag32
+
+on property:ro.boot.wakeinfo=64 && property:sys.usb.config=obex
+    start odm.shdiag
+
+on property:ro.boot.wakeinfo=68 && property:sys.usb.config=obex
+    start odm.shdiag
+
+on property:ro.boot.wakeinfo=64 && property:sys.usb.config=obex,adb
+    start odm.shdiag
+
+on property:ro.boot.wakeinfo=68 && property:sys.usb.config=obex,adb
+    start odm.shdiag
+
+on property:ro.boot.wakeinfo=64 && property:sys.usb.config=obex,adb,diag
+    start odm.shdiag
+
+on property:ro.boot.wakeinfo=68 && property:sys.usb.config=obex,adb,diag
+    start odm.shdiag
+
+on boot && property:ro.boot.wakeinfo=64
+    stop zygote
+    stop zygote_secondary
+    stop surfaceflinger
+    stop bootanim
+    stop vendor.hwcomposer-2-3
+
+on boot && property:ro.boot.wakeinfo=68
+    stop zygote
+    stop zygote_secondary
+    stop surfaceflinger
+    stop bootanim
+    stop vendor.hwcomposer-2-3
+
+on property:ro.boot.wakeinfo=64 && property:init.svc.zygote=running
+    stop zygote
+
+on property:ro.boot.wakeinfo=64 && property:init.svc.zygote=restarting
+    stop zygote
+
+on property:ro.boot.wakeinfo=64 && property:init.svc.zygote_secondary=running
+    stop zygote_secondary
+
+on property:ro.boot.wakeinfo=64 && property:init.svc.zygote_secondary=restarting
+    stop zygote_secondary
+
+on property:ro.boot.wakeinfo=64 && property:init.svc.surfaceflinger=running
+    stop surfaceflinger
+
+on property:ro.boot.wakeinfo=64 && property:init.svc.surfaceflinger=restarting
+    stop surfaceflinger
+
+on property:ro.boot.wakeinfo=64 && property:init.svc.surfaceflinger=stopping
+    stop surfaceflinger
+
+on property:ro.boot.wakeinfo=64 && property:init.svc.bootanim=running
+    stop bootanim
+
+on property:ro.boot.wakeinfo=64 && property:init.svc.bootanim=restarting
+    stop bootanim
+
+on property:ro.boot.wakeinfo=64 && property:init.svc.bootanim=stopping
+    stop bootanim
+
+on property:ro.boot.wakeinfo=64 && property:init.svc.vendor.hwcomposer-2-3=running
+    stop vendor.hwcomposer-2-3
+
+on property:ro.boot.wakeinfo=64 && property:init.svc.vendor.hwcomposer-2-3=restarting
+    stop vendor.hwcomposer-2-3
+
+on property:ro.boot.wakeinfo=64 && property:init.svc.vendor.hwcomposer-2-3=stopping
+    stop vendor.hwcomposer-2-3
+
+on property:ro.boot.wakeinfo=68 && property:init.svc.zygote=running
+    stop zygote
+
+on property:ro.boot.wakeinfo=68 && property:init.svc.zygote=restarting
+    stop zygote
+
+on property:ro.boot.wakeinfo=68 && property:init.svc.zygote_secondary=running
+    stop zygote_secondary
+
+on property:ro.boot.wakeinfo=68 && property:init.svc.zygote_secondary=restarting
+    stop zygote_secondary
+
+on property:ro.boot.wakeinfo=68 && property:init.svc.surfaceflinger=running
+    stop surfaceflinger
+
+on property:ro.boot.wakeinfo=68 && property:init.svc.surfaceflinger=restarting
+    stop surfaceflinger
+
+on property:ro.boot.wakeinfo=68 && property:init.svc.surfaceflinger=stopping
+    stop surfaceflinger
+
+on property:ro.boot.wakeinfo=68 && property:init.svc.bootanim=running
+    stop bootanim
+
+on property:ro.boot.wakeinfo=68 && property:init.svc.bootanim=restarting
+    stop bootanim
+
+on property:ro.boot.wakeinfo=68 && property:init.svc.bootanim=stopping
+    stop bootanim
+
+on property:ro.boot.wakeinfo=68 && property:init.svc.vendor.hwcomposer-2-3=running
+    stop vendor.hwcomposer-2-3
+
+on property:ro.boot.wakeinfo=68 && property:init.svc.vendor.hwcomposer-2-3=restarting
+    stop vendor.hwcomposer-2-3
+
+on property:ro.boot.wakeinfo=68 && property:init.svc.vendor.hwcomposer-2-3=stopping
+    stop vendor.hwcomposer-2-3
+
+on property:ro.boot.wakeinfo=68 && property:init.svc.surfaceflinger=stopped
+    stop vendor.hwcomposer-2-3
+
+on post-fs && property:ro.boot.wakeinfo=64
+    chmod 664 /sys/class/leds/red/brightness
+    chmod 664 /sys/class/leds/green/brightness
+    chmod 664 /sys/class/leds/blue/brightness
+    chmod 664 /sys/class/backlight/panel0-backlight/brightness
+
+on post-fs && property:ro.boot.wakeinfo=68
+    chmod 664 /sys/class/leds/red/brightness
+    chmod 664 /sys/class/leds/green/brightness
+    chmod 664 /sys/class/leds/blue/brightness
+    chmod 664 /sys/class/backlight/panel0-backlight/brightness

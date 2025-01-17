@@ -1,0 +1,2 @@
+service shrmts_usr /odm/bin/shrmts_usr
+    class core

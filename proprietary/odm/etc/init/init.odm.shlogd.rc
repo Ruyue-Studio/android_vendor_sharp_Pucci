@@ -1,0 +1,19 @@
+on post-fs-data
+    mkdir /data/vendor/shlogd 711 root system
+    chmod 0751 /sys/kernel/shterm/info
+    chown radio radio /sys/kernel/shterm/info/ONEX
+    chown radio radio /sys/kernel/shterm/info/EVDO
+    chown radio radio /sys/kernel/shterm/info/GSM
+    chown radio radio /sys/kernel/shterm/info/WCDMA
+    chown radio radio /sys/kernel/shterm/info/LTE
+
+service odm.shlogd /odm/bin/shlogd
+    class main
+    group system sdcard_rw
+    shutdown critical
+
+on charger
+    start odm.shlogd
+
+on property:sys.shutdown.requested=* && property:init.svc.odm.shlogd=running
+    write /data/vendor/shlogd/logd_cmd "GO-BTLG${sys.shutdown.requested}"
